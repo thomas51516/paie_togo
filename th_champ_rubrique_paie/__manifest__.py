@@ -2,8 +2,6 @@
 {
     'name' : 'Champs de rubriques de paie',
     'version' : '1.2.0',
-    'price':15.99,
-    'currency':'EUR',
     'license' : 'AGPL-3',
     'summary' : """
        Ajout des champs de rubriques de paie
