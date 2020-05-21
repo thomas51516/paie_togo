@@ -2,8 +2,6 @@
 {
     'name' : 'Rapport de paie en PDF',
     'version' : '1.2.0',
-    'price':15.99,
-    'currency':'EUR',
     'license' : 'AGPL-3',
     'summary' : """
        Imprimer le livre de paie mensuel en pdf
