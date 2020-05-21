@@ -95,13 +95,6 @@
 		            <field name='age'/>
 		        </tree>
 		    </field>
-		</record>
-
-		<record id="action_name_action" model="ir.actions.act_window">
-			<field name="name">name</field>
-			<field name="res_model">model</field>
-			<field name="view_mode">tree,form</field>
-		</record>
-		
+		</record>		
 	</data>
 </odoo>
