@@ -8,19 +8,19 @@ from datetime import *
 class hrContactInherit(models.Model):
 	_inherit = 'hr.contract'
 
-	absence = fields.Monetary(
+	absence = fields.Float(
 	    string='Absences',
 	    default=0,
 	)
-	adjustement = fields.Monetary(
+	adjustement = fields.Float(
 	    string='Ajustement de salaire net',
 	    default=0,
 	)
-	appel_urgence = fields.Monetary(
+	appel_urgence = fields.Float(
 	    string="Appel d'urgence",
 	    default=0,
 	)
-	astreinte = fields.Monetary(
+	astreinte = fields.Float(
 	    string='Astreinte',
 	    default=0,
 	)
@@ -28,50 +28,50 @@ class hrContactInherit(models.Model):
 	    string='Nbr de jrs de congé sans solde',
 	    default=0,
 	)
-	indemnite_transport = fields.Monetary(
+	indemnite_transport = fields.Float(
 	    string='Indemnité de transport',
 	    default=0,
 	)
-	prime_caisse = fields.Monetary(
+	prime_caisse = fields.Float(
 	    string='Prime de caisse',
 	    default=0,
 	)
-	prime_garde = fields.Monetary(
+	prime_garde = fields.Float(
 	     string='Prime de garde',
 	     default=0,
 	)
-	prime_panier = fields.Monetary(
+	prime_panier = fields.Float(
 	    string='Prime de panier',
 	    default=0,
 	)
-	prime_risque = fields.Monetary(
+	prime_risque = fields.Float(
 	    string='Prime de rique',
 	)
-	prime_salisure = fields.Monetary(
+	prime_salisure = fields.Float(
 		string="Prime de salissure"
 	)
-	prime_speciale = fields.Monetary(
+	prime_speciale = fields.Float(
 	    string='Prime spéciale',
 	)
-	prime_specialite = fields.Monetary(
+	prime_specialite = fields.Float(
 	    string='Prime de spécialité',
 	)
-	prime_responsabilite = fields.Monetary(
+	prime_responsabilite = fields.Float(
 	    string='Prime de responsabilté',
 	)
-	rapel_salaire_imp = fields.Monetary(
+	rapel_salaire_imp = fields.Float(
 	    string='Rappel de salaire imposable',
 	)
-	remboursement_pret = fields.Monetary(
+	remboursement_pret = fields.Float(
 	    string='Remboursement de prêt',
 	)
-	sursalaire = fields.Monetary(
+	sursalaire = fields.Float(
 	    string='Sursalaire',
 	)
-	regularisation_salaire_net = fields.Monetary(
+	regularisation_salaire_net = fields.Float(
 		string="Régularisation salaire net",
 	)
-	trop_percu = fields.Monetary(
+	trop_percu = fields.Float(
 	    string='Trop perçu sur prime',
 	)
 	type_paiement = fields.Selection([
@@ -103,12 +103,14 @@ class hrPersoneACharge(models.Model):
    	)
 
 
-	# @api.onchange('date_naissance')
+    @api.onchange('date_naissance')
     def _calculer_age(self):
     	for rec in self:
     		today_year = datetime.today().year
-    		birth_year = rec.date_naissance.year
-    		rec.age = today_year - birth_year
+    		birth_year = ''
+    		if rec.date_naissance  != 0:
+    			birth_year = rec.date_naissance.year
+    			rec.age = today_year - birth_year
 
 
 class hrEmployeInherit(models.Model):
